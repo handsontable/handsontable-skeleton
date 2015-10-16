@@ -1,7 +1,7 @@
 # Handsontable plugin skeletons
 These directory includes two files:
-* [internalPlugin.js](internal/internalPlugin.js)
-* [externalPlugin.js](external/externalPlugin.js)
+* [internalPluginSkeleton.js](internal/internalPluginSkeleton.js)
+* [externalPluginSkeleton.js](external/externalPluginSkeleton.js)
 
 They contain a skeleton classes of a *internal* and *external* Handsontable plugins.
 
@@ -19,5 +19,5 @@ They contain a skeleton classes of a *internal* and *external* Handsontable plug
 * It's imported to the website separately from Handsontable, for example:
 ```html
 <script src="./handsontable.full.js"></script>
-<script src="./externalPlugin.js"></script>
+<script src="./externalPluginSkeleton.js"></script>
 ```
