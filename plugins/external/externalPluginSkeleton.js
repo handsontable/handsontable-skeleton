@@ -3,7 +3,6 @@ function ExternalPluginSkeleton(hotInstance) {
   // Call the BasePlugin constructor.
   Handsontable.plugins.BasePlugin.call(this, hotInstance);
 
-  this._this = this;
   this._superClass = Handsontable.plugins.BasePlugin;
 
   // The constructor should contain the initialization of all public properties of the class.
@@ -21,7 +20,13 @@ function ExternalPluginSkeleton(hotInstance) {
 }
 
 // Inherit the BasePlugin prototype.
-ExternalPluginSkeleton.prototype = Object.create(Handsontable.plugins.BasePlugin.prototype);
+ExternalPluginSkeleton.prototype = Object.create(Handsontable.plugins.BasePlugin.prototype, {
+  constructor: {
+    writable: true,
+    configurable: true,
+    value: ExternalPluginSkeleton
+  },
+});
 
 /**
  * Checks if the plugin is enabled in the settings.
@@ -39,14 +44,14 @@ ExternalPluginSkeleton.prototype.enablePlugin = function() {
   this.yourProperty = 'Your Value';
 
   // Add all your plugin hooks here. It's a good idea to make use of the arrow functions to keep the context consistent.
-  this.hot.addHook('afterChange', this.onAfterChange);
+  this.addHook('afterChange', this.onAfterChange.bind(this));
 
   // The super class' method assigns the this.enabled property to true, which can be later used to check if plugin is already enabled.
   this._superClass.prototype.enablePlugin.call(this);
 };
 
 /**
- * The disablePlugin method is used to temporarily disable the plugin. Reset all of your classes properties to their default values here.
+ * The disablePlugin method is used to disable the plugin. Reset all of your classes properties to their default values here.
  */
 ExternalPluginSkeleton.prototype.disablePlugin = function() {
   this.yourProperty = '';
@@ -77,6 +82,8 @@ ExternalPluginSkeleton.prototype.updatePlugin = function() {
  */
 ExternalPluginSkeleton.prototype.onAfterChange = function(changes, source) {
   // afterChange callback goes here.
+
+  console.log(this, changes, source);
 };
 
 /**

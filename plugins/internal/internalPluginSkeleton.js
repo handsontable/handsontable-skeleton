@@ -44,16 +44,14 @@ class InternalPluginSkeleton extends BasePlugin {
     this.yourProperty = 'Your Value';
 
     // Add all your plugin hooks here. It's a good idea to make use of the arrow functions to keep the context consistent.
-    this.hot.addHook('afterChange', (changes, source) = > this.onAfterChange(changes, source)
-  )
-    ;
+    this.addHook('afterChange', (changes, source) => this.onAfterChange(changes, source));
 
     // The super method assigns the this.enabled property to true, which can be later used to check if plugin is already enabled.
     super.enablePlugin();
   }
 
   /**
-   * The disablePlugin method is used to temporarily disable the plugin. Reset all of your classes properties to their default values here.
+   * The disablePlugin method is used to disable the plugin. Reset all of your classes properties to their default values here.
    */
   disablePlugin() {
     this.yourProperty = '';
