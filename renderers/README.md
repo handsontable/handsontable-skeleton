@@ -1,8 +1,31 @@
-# Handsontable Renderer Skeleton
+# Renderers
 
-You can easily assign a custom renderer to a Handsontable instance.
-A renderer is basically a function run every time a cell is being rendered.
-You can find a sample renderer in the [rendererSkeleton.js](rendererSkeleton.js) file.
+## What is a renderer?
+Renderer is basically a function run every time a cell is being rendered.
 
-You can find additional information on how to implement your renderer to the Handsontable instance in our documentation:
-http://docs.handsontable.com/demo-custom-renderers.html
+## Sample renderer step by step tutorial
+* Write a function based on the guidelines provided in the [rendererSkeleton.js](rendererSkeleton.js) file,
+* Define the renderer in your Handsontable configuration:
+
+To apply it to every cell in Handsontable:
+```js
+var hot = new Handsontable(container1, {
+    data: data,
+    renderer: yourRendererFunction
+  });
+```
+
+To apply it only to certain columns:
+```js
+// This setup would apply your custom renderer only to the second table column.
+
+var hot = new Handsontable(container1, {
+    data: data,
+    columns: [
+      {},
+      {renderer: yourRendererFunction}
+    ]
+  });
+```
+
+To read more about custom renderers, see our documentation: http://docs.handsontable.com/demo-custom-renderers.html.
