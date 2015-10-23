@@ -2,17 +2,19 @@
 
 ## What is it?
 This repo contains the sample structures of components commonly used in Handsontable. 
+
 Over the last years Handsontable has become more and more complex. Many developers started contributing to this project, too. 
 If you plan to contribute, or just extend your local implemention's functionality, please use our unified templates, as they help us keep the library easy to maintain and extend.
 
 #### Currently available:
 * [Plugins](plugins)
-  * [Internal plugins](plugins/internal/internalPluginSkeleton.js)
-  * [External plugins](plugins/internal/externalPluginSkeleton.js)
+  * [Internal plugins](plugins/internal/)
+  * [External plugins](plugins/internal/)
 * [Renderers](renderers)
 
 ## Why use it?
 It's much easier to start with an established structure than create new feautures from scratch. 
+
 This skeleton will save your time and allow to focus on the logic behind the functionality instead of setting up the proper structure.
 
 ## Who made these?
