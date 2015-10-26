@@ -5,7 +5,7 @@ function ExternalPluginSkeleton(hotInstance) {
 
   this._superClass = Handsontable.plugins.BasePlugin;
 
-  // The constructor should contain the initialization of all public properties of the class.
+  // Initialize all your public properties in the class' constructor.
   /**
    * yourProperty description.
    *
@@ -67,7 +67,7 @@ ExternalPluginSkeleton.prototype.disablePlugin = function() {
  */
 ExternalPluginSkeleton.prototype.updatePlugin = function() {
 
-  // Sometimes disabling and re-enabling the plugin should do the trick.
+  // The updatePlugin method needs to contain all the code needed to properly re-enable the plugin. In most cases simply disabling and enabling the plugin should do the trick.
   this.disablePlugin();
   this.enablePlugin();
 
@@ -82,20 +82,15 @@ ExternalPluginSkeleton.prototype.updatePlugin = function() {
  */
 ExternalPluginSkeleton.prototype.onAfterChange = function(changes, source) {
   // afterChange callback goes here.
-
-  console.log(this, changes, source);
 };
 
 /**
  * The destroy method should de-assign all of your properties.
  */
 ExternalPluginSkeleton.prototype.destroy = function() {
-  this.yourProperty = null;
-  this.anotherProperty = null;
-
-  // The super method takes care of de-assigning the event callbacks, plugin hooks and clearing the 'this.hot' property.
+  // The super method takes care of de-assigning the event callbacks, plugin hooks and clearing all the plugin properties.
   this._superClass.prototype.destroy.call(this);
 };
 
 // You need to register your plugin in order to use it within Handsontable.
-Handsontable.plugins.utils.registerPlugin('externalPluginSkeleton', ExternalPluginSkeleton);
+Handsontable.plugins.registerPlugin('externalPluginSkeleton', ExternalPluginSkeleton);

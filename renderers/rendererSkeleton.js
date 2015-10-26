@@ -11,7 +11,7 @@
  */
 function rendererSkeleton(instance, td, row, col, prop, value, cellProperties) {
 
-  // Sample operation on the cell.
+  // Sample operation on the cell. In this case, we modify the currently rendered cell's style property.
   if (row === 0 && col === 0) {
     td.style.fontWeight = 'bold';
   }

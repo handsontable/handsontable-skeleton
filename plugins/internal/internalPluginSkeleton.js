@@ -14,7 +14,7 @@ class InternalPluginSkeleton extends BasePlugin {
   constructor(hotInstance) {
     super(hotInstance);
 
-    // The constructor should contain the initialization of all public properties of the class, along with a call to the super method.
+    // Initialize all your public properties in the class' constructor.
     /**
      * yourProperty description.
      *
@@ -67,7 +67,7 @@ class InternalPluginSkeleton extends BasePlugin {
    */
   updatePlugin() {
 
-    // Sometimes disabling and re-enabling the plugin should do the trick.
+    // The updatePlugin method needs to contain all the code needed to properly re-enable the plugin. In most cases simply disabling and enabling the plugin should do the trick.
     this.disablePlugin();
     this.enablePlugin();
 
@@ -88,10 +88,7 @@ class InternalPluginSkeleton extends BasePlugin {
    * The destroy method should de-assign all of your properties.
    */
   destroy() {
-    this.yourProperty = null;
-    this.anotherProperty = null;
-
-    // The super method takes care of de-assigning the event callbacks, plugin hooks and clearing the 'this.hot' property.
+    // The super method takes care of de-assigning the event callbacks, plugin hooks and clearing all the plugin properties.
     super.destroy();
   }
 }
