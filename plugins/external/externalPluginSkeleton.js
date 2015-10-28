@@ -1,3 +1,10 @@
+/**
+ * @plugin External plugin skeleton.
+ * Note: keep in mind, that Handsontable instance creates one instance of the plugin class.
+ *
+ * @param hotInstance
+ * @constructor
+ */
 function ExternalPluginSkeleton(hotInstance) {
 
   // Call the BasePlugin constructor.

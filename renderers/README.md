@@ -28,4 +28,21 @@ var hot = new Handsontable(container1, {
   });
 ```
 
+To apply it to certain cells:
+```js
+// This setup would apply your custom renderer only to the cell at coordinates (1,1).
+
+var hot = new Handsontable(container1, {
+    data: data,
+    cells: function(row, col, prop) {
+      if (row === 1 && col === 1) {
+        var cellProperties = {};
+        cellProperties.renderer = yourRendererFunction;
+        
+        return cellProperties;
+      }
+    }
+  });
+```
+
 To read more about custom renderers, see our documentation: http://docs.handsontable.com/demo-custom-renderers.html.

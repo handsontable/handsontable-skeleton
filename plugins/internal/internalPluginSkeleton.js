@@ -4,6 +4,7 @@ import {registerPlugin} from './../../../plugins';
 
 /**
  * @plugin InternalPluginSkeleton
+ * Note: keep in mind, that Handsontable instance creates one instance of the plugin class.
  *
  * @description
  * Blank plugin template. It needs to inherit from the BasePlugin class.
