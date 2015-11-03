@@ -39,7 +39,7 @@ class HelloWorldPlugin extends BasePlugin {
 
     this.addHook('afterChange', this.onAfterChange.bind(this));
 
-    super.enablePlugin.call(this);
+    super.enablePlugin();
   }
 
   /**
@@ -48,7 +48,7 @@ class HelloWorldPlugin extends BasePlugin {
   disablePlugin() {
     this.vocabularyArray = [];
 
-    super.disablePlugin.call(this);
+    super.disablePlugin();
   }
 
   /**
@@ -58,7 +58,7 @@ class HelloWorldPlugin extends BasePlugin {
     this.disablePlugin();
     this.enablePlugin();
 
-    super.updatePlugin.call(this);
+    super.updatePlugin();
   }
 
   /**
@@ -74,13 +74,11 @@ class HelloWorldPlugin extends BasePlugin {
       return;
     }
 
-    var _this = this;
-
     arrayEach(changes, function(change, i) {
-      arrayEach(_this.vocabularyArray, function(entry, j) {
+      arrayEach(this.vocabularyArray, function(entry, j) {
 
         if (change[3] && change[3].toString().toLowerCase() === entry[0].toString().toLowerCase()) {
-          _this.hot.setDataAtCell(change[0], change[1] + 1, entry[1], 'helloWorldPlugin');
+          this.hot.setDataAtCell(change[0], change[1] + 1, entry[1], 'helloWorldPlugin');
         }
 
       });
@@ -91,7 +89,7 @@ class HelloWorldPlugin extends BasePlugin {
    * Destroy the plugin.
    */
   destroy() {
-    super.destroy.call(this);
+    super.destroy();
   }
 }
 
