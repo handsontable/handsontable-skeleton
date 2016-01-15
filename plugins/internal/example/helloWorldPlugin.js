@@ -29,7 +29,7 @@ class HelloWorldPlugin extends BasePlugin {
   }
 
   /**
-   * Enable the plujgin.
+   * Enable the plugin.
    */
   enablePlugin() {
     this.vocabularyArray = [
